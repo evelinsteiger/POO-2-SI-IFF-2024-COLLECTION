@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
 /**
  *
@@ -24,27 +26,7 @@ public class GameController {
     @FXML
     private Button btnSearch;
     @FXML
-    private TableView<?> tblGames;
-    @FXML
-    private TableColumn<?, ?> tblColImage;
-    @FXML
-    private TableColumn<?, ?> tblColTitle;
-    @FXML
-    private TableColumn<?, ?> tblColPlatform;
-    @FXML
-    private TableColumn<?, ?> tblColDate;
-    @FXML
-    private TableColumn<?, ?> tblColActions;
-    @FXML
-    private Button btnLogout;
-    @FXML
-    private Button btnAccount;
-    @FXML
-    private Button btnNavigateMain;
-    @FXML
-    private Button btnNavigateLibrary;
-    @FXML
-    private Button btnNavigateFavorite;
+    private TableView<?> tableResults;
     
     /**
      * Initializes the controller class.
@@ -54,23 +36,10 @@ public class GameController {
     }   
 
     @FXML
-    private void goBack(ActionEvent event) {
-        
-    }
-
-    @FXML
     private void onSearch(ActionEvent event) {
-        
     }
 
-    @FXML
-    private void onLogout(ActionEvent event) {
-        
-    }
 
-    @FXML
-    private void handleNavigate(ActionEvent event) {
-        
-    }
+
     
 }
