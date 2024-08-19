@@ -1,6 +1,7 @@
 # POO-2-SI-IFF-2024-COLLECTION
-Desenvolva um Sistema Gestor de Coleções para Desktop utilizando JavaFX, Netbeans, MySQL, seguindo os padrões DAO, Factory e MVC vistos em sala.
+**AUTORES: Evelin Steiger e Daniel Boechat**
 
+Desenvolva um Sistema Gestor de Coleções para Desktop utilizando JavaFX, Netbeans, MySQL, seguindo os padrões DAO, Factory e MVC vistos em sala.
 Curso Superior em Sistemas de Informação - Trabalho 1
 Disciplina: Programação Orientada a Objetos | Peso: 10,0
 
