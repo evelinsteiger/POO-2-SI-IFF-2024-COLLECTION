@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.media.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.canvas.*?>
-<?import javafx.scene.chart.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.gluonhq.charm.glisten.control.AppBar?>
+<?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import com.gluonhq.charm.glisten.control.BottomNavigation?>
+<?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
+<?import com.gluonhq.charm.glisten.control.Icon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" maxHeight="480.0" maxWidth="640.0" minHeight="480.0" minWidth="640.0" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #21002B; -fx-padding: 25px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameController">
+<AnchorPane id="AnchorPane" maxHeight="480.0" maxWidth="840.0" minHeight="680.0" minWidth="840.0" prefHeight="680.0" prefWidth="840.0" style="-fx-background-color: #22193C; -fx-padding: 25px;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameController">
    <children>
-    <AnchorPane layoutX="115.0" layoutY="70.0" minHeight="0.0" minWidth="0.0" prefHeight="396.0" prefWidth="514.0" style="-fx-background-color: #5E4665; -fx-background-insets: 3; -fx-border-width: 3; -fx-border-radius: 10px; -fx-border-color: #5E4665;">
+    <AnchorPane layoutX="109.0" layoutY="93.0" minHeight="0.0" minWidth="0.0" prefHeight="495.0" prefWidth="669.0" style="-fx-background-color: #DAB8E7; -fx-background-insets: 3; -fx-border-width: 3; -fx-border-radius: 10px; -fx-border-color: #DAB8E7;" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="70.0">
          <children>
-            <Text fill="WHITE" layoutX="14.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicione o jogo em sua coleção">
+            <Text fill="WHITE" layoutX="17.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #333;" text="Adicione um novo jogo em sua coleção">
                <font>
                   <Font name="Futura Medium" size="16.0" />
                </font>
             </Text>
-            <Text fill="#ffffffcc" layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Para adicionar um novo jogo em sua coleção, comece buscando o jogo pelo campo abaixo e preencha as demais informações." wrappingWidth="400.0">
+            <Text fill="#ffffffcc" layoutX="17.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #333;" text="Para adicionar novos títulos a sua coleção, comece buscando o jogo pelo campo abaixo e preencha as demais informações." wrappingWidth="400.0">
                <font>
                   <Font name="Futura Medium" size="12.0" />
                </font>
             </Text>
-            <Button id="back" fx:id="btnBack" layoutX="456.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleNavigate" style="-fx-background-color: transparent;" text="voltar" textFill="WHITE" underline="true">
+            <Button id="back" fx:id="btnBack" layoutX="622.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleNavigate" style="-fx-background-color: transparent; -fx-text-fill: #333;" text="voltar" underline="true">
                <font>
                   <Font name="Futura Medium" size="12.0" />
                </font>
@@ -37,8 +37,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TextField fx:id="txtSearch" layoutX="15.0" layoutY="88.0" onAction="#onSearch" prefHeight="27.0" prefWidth="407.0" promptText="buscar por nome" />
-            <Button fx:id="btnSearch" alignment="CENTER" contentDisplay="CENTER" layoutX="437.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: #250032;" text="buscar" textAlignment="CENTER" textFill="WHITE">
+            <TextField fx:id="txtSearch" layoutX="15.0" layoutY="88.0" maxHeight="35.0" minHeight="35.0" onAction="#onSearch" prefHeight="35.0" prefWidth="407.0" promptText="buscar por nome" style="-fx-background-color: white; -fx-background-insets: 2; -fx-border-width: 3; -fx-border-radius: 5px; -fx-border-color: #DAB8E7;" />
+            <Button fx:id="btnSearch" alignment="CENTER" contentDisplay="CENTER" layoutX="428.0" layoutY="90.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #250032; -fx-font-size: 12;" text="buscar" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Futura Medium" size="11.0" />
                </font>
@@ -46,92 +46,68 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TableView fx:id="tblGames" layoutX="14.0" layoutY="131.0" prefHeight="251.0" prefWidth="486.0" style="-fx-background-color: #fff; -fx-background-insets: 3; -fx-border-color: #fff; -fx-border-width: 3; -fx-border-radius: 8;">
-              <columns>
-                <TableColumn fx:id="tblColImage" prefWidth="61.0" resizable="false" text="Prévia" />
-                <TableColumn fx:id="tblColTitle" prefWidth="211.0" resizable="false" sortable="false" text="Título" />
-                  <TableColumn fx:id="tblColPlatform" prefWidth="84.0" resizable="false" text="Plataforma" />
-                  <TableColumn fx:id="tblColDate" prefWidth="52.0" resizable="false" text="Ano" />
-                  <TableColumn fx:id="tblColActions" prefWidth="77.0" resizable="false" text="Ações" />
-              </columns>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </TableView>
          </children>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
       </AnchorPane>
-      <Pane layoutX="115.0" layoutY="21.0" prefHeight="29.0" prefWidth="182.0">
-         <children>
-            <Text fill="#ffffffe4" layoutX="2.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-vindo de volta, Evelin!" textAlignment="CENTER" wrappingWidth="178.71875">
+      <AppBar layoutX="7.0" layoutY="23.0" prefHeight="60.0" prefWidth="840.0" style="-fx-background-color: #291761; -fx-border-color: #5E30F4; -fx-border-width: 0 0 3 0;" titleText="" AnchorPane.leftAnchor="-25.0" AnchorPane.topAnchor="-25.0">
+         <padding>
+            <Insets bottom="50.0" />
+         </padding>
+      </AppBar>
+      <Avatar layoutX="28.0" layoutY="16.0" radius="30.0" style="-fx-background-color: white;">
+         <image>
+            <Image url="@../assets/avatar.jpg" />
+         </image>
+      </Avatar>
+      <ToolBar layoutX="454.0" layoutY="9.0" maxHeight="40.0" maxWidth="340.0" minHeight="40.0" minWidth="220.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="269.0" style="-fx-background-color: #22193C; -fx-padding: 8px 10px; -fx-border-radius: 5px; -fx-border-width: 3; -fx-background-insets: 3; -fx-border-color: #22193C;" AnchorPane.rightAnchor="0.0">
+         <items>
+            <Icon content="EXIT_TO_APP" />
+            <Text fill="#ffffffe4" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-vindo de volta, Evelin" textAlignment="RIGHT" wrappingWidth="210.0">
                <font>
                   <Font name="Futura Medium" size="14.0" />
                </font>
             </Text>
-         </children>
-      </Pane>
-      <ToolBar layoutX="467.0" layoutY="13.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="45.0" prefWidth="159.0" style="-fx-background-color: #66264E; -fx-padding: 8px 10px; -fx-border-radius: 5px; -fx-border-width: 3; -fx-background-insets: 3; -fx-border-color: #66264E;">
-        <items>
-          <Button fx:id="btnLogout" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onLogout" style="-fx-background-color: #66264E;" text="sair" textAlignment="CENTER" textFill="WHITE" underline="true">
-               <font>
-                  <Font name="Helvetica Neue Bold" size="12.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button fx:id="btnAccount" mnemonicParsing="false" style="-fx-background-color: #250032;" text="minha conta" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Helvetica Neue Bold" size="12.0" />
-               </font>
-            </Button>
-        </items>
+         </items>
       </ToolBar>
-      <ImageView fitHeight="50.0" fitWidth="67.0" layoutX="32.0" layoutY="14.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/logo.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </ImageView>
-      <VBox layoutX="13.0" layoutY="72.0" prefHeight="396.0" prefWidth="87.0" style="-fx-background-color: #66264E; -fx-border-radius: 10px; -fx-border-color: #66264E; -fx-border-width: 3; -fx-background-insets: 3;">
-         <padding>
-            <Insets bottom="10.0" left="8.0" right="8.0" top="10.0" />
-         </padding>
-         <children>
-            <Button id="main" fx:id="btnNavigateMain" alignment="CENTER" mnemonicParsing="false" onAction="#handleNavigate" prefHeight="40.0" prefWidth="64.0" style="-fx-background-color: transparent;" text="início" textAlignment="CENTER" textFill="WHITE" underline="true" wrapText="true">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+      <BottomNavigation layoutX="28.0" layoutY="615.0" style="-fx-background-color: #291761;" AnchorPane.bottomAnchor="-25.0" AnchorPane.leftAnchor="-25.0" AnchorPane.rightAnchor="-25.0">
+          <actionItems>
+              <BottomNavigationButton alignment="CENTER" selected="true" style="-fx-font-size: 11px; -fx-font-weight: bold;" text="dashboard" textAlignment="CENTER" textFill="WHITE" underline="true">
+                  <graphic>
+                      <Icon content="DEVELOPER_BOARD">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Icon>
+                  </graphic>
                <font>
-                  <Font name="Futura Medium" size="11.0" />
+                  <Font name="Futura Bold" size="10.0" />
                </font>
-               <VBox.margin>
-                  <Insets bottom="-5.0" top="-8.0" />
-               </VBox.margin>
-            </Button>
-            <Button id="library" fx:id="btnNavigateLibrary" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleNavigate" prefHeight="48.0" prefWidth="65.0" style="-fx-background-color: transparent;" text="biblioteca" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS" underline="true" wrapText="true" VBox.vgrow="NEVER">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Futura Medium" size="11.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="5.0" top="-2.0" />
-               </VBox.margin>
-            </Button>
-            <Button id="liked" fx:id="btnNavigateFavorite" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleNavigate" prefHeight="39.0" prefWidth="65.0" style="-fx-background-color: transparent;" text="favoritos" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS" underline="true" wrapText="true">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Futura Medium" size="11.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="-8.0" />
-               </VBox.margin>
-            </Button>
-         </children>
-      </VBox>
+              </BottomNavigationButton>
+              <BottomNavigationButton style="-fx-font-size: 11; -fx-font-weight: bold;" text="meus favoritos" underline="true">
+                  <graphic>
+                      <Icon content="FAVORITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Icon>
+                  </graphic>
+              </BottomNavigationButton>
+              <BottomNavigationButton style="-fx-font-weight: bold; -fx-font-size: 11;" text="biblioteca" underline="true">
+                  <graphic>
+                      <Icon content="VIDEOGAME_ASSET" />
+                  </graphic>
+              </BottomNavigationButton>
+            <BottomNavigationButton style="-fx-font-size: 11; -fx-font-weight: bold;" text="novo jogo" underline="true">
+               <graphic>
+                  <Icon content="FIBER_NEW" />
+               </graphic></BottomNavigationButton>
+          </actionItems>
+      </BottomNavigation>
    </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
 </AnchorPane>
