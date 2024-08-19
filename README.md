@@ -5,7 +5,7 @@ Desenvolva um Sistema Gestor de Coleções para Desktop utilizando JavaFX, Netbe
 Curso Superior em Sistemas de Informação - Trabalho 1
 Disciplina: Programação Orientada a Objetos | Peso: 10,0
 
-Trabalho em dupla* a ser entregue em formato digital.
+Trabalho em dupla a ser entregue em formato digital.
 
 **Questão única:** Desenvolva um Sistema Gestor de Coleções para Desktop utilizando
 JavaFX, Netbeans, MySQL, seguindo os padrões DAO, Factory e MVC vistos em sala, e com
@@ -21,12 +21,12 @@ as seguintes funcionalidades:
     
     Sugestão: utilizar um atributo/campo “status”.
     
-**3. (1,0) Estatística dos itens (% itens adquiridos / faltantes / lidos / ouvidos...). **
+**3. (1,0) Estatística dos itens (% itens adquiridos / faltantes / lidos / ouvidos...).**
     
     Pesquise por algum componente que apresente a estatística de forma gráfica e não somente o valor
     percentual.
     
-*** (+ 6,0 pontos relativos à apresentação INDIVIDUAL).**
+**(+ 6,0 pontos relativos à apresentação INDIVIDUAL).**
 
 O que deve ser entregue:
 
