@@ -4,6 +4,10 @@ module start {
     requires java.sql;
     requires java.base;
     
+    requires com.gluonhq.charm.glisten;
+    requires com.gluonhq.attach.util;
+    requires com.gluonhq.attach.display;
+    
     opens model to javafx.fxml;
     exports model;
 
@@ -11,6 +15,5 @@ module start {
     exports start;
     
     opens controller to javafx.fxml;
-    exports controller;
-   
+    exports controller;   
 }
