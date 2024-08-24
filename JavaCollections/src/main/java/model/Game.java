@@ -1,8 +1,6 @@
 package model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import model.dao.GameCustomDeserializer;
 
 //@JsonDeserialize(using = GameCustomDeserializer.class)
 public class Game {
@@ -17,7 +15,6 @@ public class Game {
     private int id;
     private String name;
     private String image;
-    private String releaseDates;
     private String gender;
     private Float rating;
     private String platforms;
@@ -38,10 +35,9 @@ public class Game {
         
     }
 
-    public Game(String name, String image, String releaseDates, String gender, Float rating, String platforms, boolean favorite, String description, String createdAt) {
+    public Game(String name, String image, String gender, Float rating, String platforms, boolean favorite, String description, String createdAt) {
         this.name = name;
         this.image = image;
-        this.releaseDates = releaseDates;
         this.gender = gender;
         this.rating = rating;
         this.platforms = platforms;
@@ -72,14 +68,6 @@ public class Game {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public String getReleaseDates() {
-        return releaseDates;
-    }
-
-    public void setReleaseDates(String releaseDates) {
-        this.releaseDates = releaseDates;
     }
 
     public String getGender() {
@@ -145,7 +133,6 @@ public class Game {
         sb.append("id=").append(id);
         sb.append(", name=").append(name);
         sb.append(", image=").append(image);
-        sb.append(", releaseDates=").append(releaseDates);
         sb.append(", gender=").append(gender);
         sb.append(", rating=").append(rating);
         sb.append(", platforms=").append(platforms);

@@ -17,17 +17,29 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.binding.Bindings;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
+
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+
 import model.Game;
+import model.dao.DaoFactory;
 import model.dao.GameCustomDeserializer;
+import model.dao.GameDaoJdbc;
 import start.App;
 
 
@@ -54,18 +66,18 @@ public class GameController {
     @FXML
     private TableView<Game> tableGames;
     @FXML
-    private TableColumn<?, ?> colImage;
+    private TableColumn<Game, String> colImage;
     @FXML
-    private TableColumn<?, ?> colName;
+    private TableColumn<Game, String> colName;
     @FXML
-    private TableColumn<?, ?> colRelease;
+    private TableColumn<Game, String> colPlatforms;
     @FXML
-    private TableColumn<?, ?> colPlatforms;
-    @FXML
-    private TableColumn<?, ?> colGender;
+    private TableColumn<Game, String> colGender;
     
     private List<Game> list = new ArrayList();
     private ObservableList<Game> observableList;
+    @FXML
+    private Button btnCreateGame;
    
     
     
@@ -79,6 +91,8 @@ public class GameController {
     
     @FXML
     private void onSearch(ActionEvent event) throws Exception {
+        tableGames.setItems(null);
+        
         Map<Integer, String> response = fetchGames(txtSearch.getText());
         
         ObjectMapper mapper = new ObjectMapper();
@@ -86,9 +100,10 @@ public class GameController {
         module.addDeserializer(Game.class, new GameCustomDeserializer()); 
         mapper.registerModule(module);
 
-        response.forEach((key, value) -> {
+        response.forEach((var key, var value) -> {
             try {
                 Game game = mapper.readValue(value, Game.class);
+
                 list.add(game.getId(), game);
             } catch (IOException ex) {
                 Logger.getLogger(GameController.class.getName()).log(Level.SEVERE, null, ex);
@@ -97,13 +112,35 @@ public class GameController {
         
         observableList = FXCollections.observableArrayList(list);
 
-        colImage.setCellValueFactory(new PropertyValueFactory<>("Imagem"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("Título"));
-        colRelease.setCellValueFactory(new PropertyValueFactory<>("Lançamento"));
-        colPlatforms.setCellValueFactory(new PropertyValueFactory<>("Plataformas"));
-        colGender.setCellValueFactory(new PropertyValueFactory<>("Gênero"));
+        colImage.setCellValueFactory(new PropertyValueFactory<>("image"));
+        colImage.setCellFactory(col -> {
+            TableCell<Game, String> cell = new TableCell<>();
+            cell.itemProperty().addListener((observableValue, o, newValue) -> {
+                if (newValue != null) {
+                    Node graphic = createImageGraphic(newValue);
+                    cell.graphicProperty().bind(Bindings.when(cell.emptyProperty()).then((Node) null).otherwise(graphic));
+                }
+            });
+            return cell;
+        });
+        
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colPlatforms.setCellValueFactory(new PropertyValueFactory<>("platforms"));
+        colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
         
         tableGames.setItems(observableList);
+
+    }
+    
+    private Node createImageGraphic(String url){
+        HBox graphicContainer = new HBox();
+        graphicContainer.setAlignment(Pos.CENTER);
+        ImageView imageView = new ImageView(new Image(url));
+        imageView.setFitHeight(25);
+        imageView.setPreserveRatio(true);
+        graphicContainer.getChildren().add(imageView);
+        
+        return graphicContainer;
     }
 
     @FXML
@@ -129,6 +166,24 @@ public class GameController {
     @FXML
     private void handleNavigateCreateGame(ActionEvent event) throws IOException {
         App.setRoot("create_game");
+    }
+
+    @FXML
+    private void handleSubmit(ActionEvent event) throws Exception {
+        Game select = tableGames.selectionModelProperty().getValue().getSelectedItem();
+
+        try {
+            GameDaoJdbc dao = DaoFactory.newGameDao();
+            Game input = new Game(select.getName(), select.getImage(), select.getGender(), select.getRating(), select.getPlatforms(), select.isFavorite(), select.getDescription(), select.getCreatedAt());
+       
+            dao.create(input);
+            
+        } catch (IOException e) {
+            System.out.println("Erro:" + e.getMessage());
+        } finally {
+            select = null;
+            App.setRoot("create_game");
+        }
     }
 
 }

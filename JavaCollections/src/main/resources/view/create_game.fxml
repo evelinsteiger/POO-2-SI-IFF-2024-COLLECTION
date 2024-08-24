@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Cursor?>
@@ -15,7 +22,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" maxHeight="480.0" maxWidth="840.0" minHeight="680.0" minWidth="840.0" prefHeight="680.0" prefWidth="840.0" style="-fx-background-color: #22193C; -fx-padding: 25px;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameController">
+<AnchorPane id="AnchorPane" maxHeight="480.0" maxWidth="840.0" minHeight="680.0" minWidth="840.0" prefHeight="680.0" prefWidth="840.0" style="-fx-background-color: #22193C; -fx-padding: 25px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameController">
    <children>
     <AnchorPane layoutX="128.0" layoutY="119.0" minHeight="0.0" minWidth="0.0" prefHeight="437.0" prefWidth="647.0" style="-fx-background-color: #DAB8E7; -fx-background-insets: 3; -fx-border-width: 3; -fx-border-radius: 10px; -fx-border-color: #DAB8E7;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="100.0">
          <children>
@@ -38,15 +45,22 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TableView fx:id="tableGames" layoutX="17.0" layoutY="151.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
+            <TableView fx:id="tableGames" layoutX="35.0" layoutY="139.0" prefHeight="238.0" prefWidth="619.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
               <columns>
-                <TableColumn fx:id="colImage" editable="false" prefWidth="97.0" resizable="false" sortable="false" text="Imagem" />
-                <TableColumn fx:id="colName" prefWidth="238.0" text="Título" />
-                  <TableColumn fx:id="colRelease" prefWidth="106.0" text="Lançamento" />
-                  <TableColumn fx:id="colPlatforms" editable="false" prefWidth="114.0" resizable="false" sortable="false" text="Plataformas" />
-                  <TableColumn fx:id="colGender" editable="false" prefWidth="97.0" resizable="false" sortable="false" text="Gênero" />
+                <TableColumn fx:id="colImage" editable="false" prefWidth="106.0" resizable="false" sortable="false" text="Imagem" />
+                <TableColumn fx:id="colName" prefWidth="229.0" text="Título" />
+                  <TableColumn fx:id="colPlatforms" editable="false" prefWidth="160.0" resizable="false" sortable="false" text="Plataformas" />
+                  <TableColumn fx:id="colGender" editable="false" prefWidth="156.0" resizable="false" sortable="false" text="Gênero" />
               </columns>
             </TableView>
+            <Button fx:id="btnCreateGame" alignment="CENTER" contentDisplay="CENTER" layoutX="609.0" layoutY="387.0" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="30.0" style="-fx-background-color: #250032; -fx-font-size: 12; -fx-font-weight: bold;" text="adicionar" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Futura Bold" size="11.0" />
+               </font>
+            </Button>
          </children>
          <padding>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
