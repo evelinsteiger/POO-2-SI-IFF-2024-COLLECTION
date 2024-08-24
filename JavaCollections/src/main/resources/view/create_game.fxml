@@ -30,7 +30,7 @@
                </font>
             </Text>
             <TextField fx:id="txtSearch" layoutX="15.0" layoutY="88.0" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" prefWidth="407.0" promptText="buscar por nome" style="-fx-background-color: white; -fx-background-insets: 2; -fx-border-width: 3; -fx-border-radius: 5px; -fx-border-color: #DAB8E7;" />
-            <Button fx:id="btnSearch" alignment="CENTER" contentDisplay="CENTER" layoutX="428.0" layoutY="90.0" mnemonicParsing="false" onAction="#onSearch" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #250032; -fx-font-size: 12;" text="buscar" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="btnSearch" alignment="CENTER" contentDisplay="CENTER" layoutX="428.0" layoutY="90.0" mnemonicParsing="false" onAction="#onSearch" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #250032; -fx-font-size: 12; -fx-font-weight: bold;" text="buscar" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Futura Bold" size="11.0" />
                </font>
@@ -38,10 +38,13 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TableView fx:id="tableResults" layoutX="17.0" layoutY="151.0" prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="tableGames" layoutX="17.0" layoutY="151.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="colImage" editable="false" prefWidth="97.0" resizable="false" sortable="false" text="Imagem" />
+                <TableColumn fx:id="colName" prefWidth="238.0" text="Título" />
+                  <TableColumn fx:id="colRelease" prefWidth="106.0" text="Lançamento" />
+                  <TableColumn fx:id="colPlatforms" editable="false" prefWidth="114.0" resizable="false" sortable="false" text="Plataformas" />
+                  <TableColumn fx:id="colGender" editable="false" prefWidth="97.0" resizable="false" sortable="false" text="Gênero" />
               </columns>
             </TableView>
          </children>

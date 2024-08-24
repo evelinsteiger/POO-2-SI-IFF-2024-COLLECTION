@@ -1,6 +1,6 @@
 package controller;
 
-import java.io.IOException;
+import static controller.APIController.handleAuth;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -26,8 +26,12 @@ public class WelcomeController implements Initializable {
     }    
 
     @FXML
-    private void onStart(ActionEvent event) throws IOException {
-        App.setRoot("main");
+    private void onStart(ActionEvent event) throws Exception {
+        boolean isAuth = handleAuth();
+        
+        if (isAuth) {
+            App.setRoot("main");
+        }
     }
     
 }

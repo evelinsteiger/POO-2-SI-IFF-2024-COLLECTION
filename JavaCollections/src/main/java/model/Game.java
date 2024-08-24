@@ -1,5 +1,10 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import model.dao.GameCustomDeserializer;
+
+//@JsonDeserialize(using = GameCustomDeserializer.class)
 public class Game {
     
     private enum collectionStatus {
@@ -11,32 +16,38 @@ public class Game {
     
     private int id;
     private String name;
+    private String image;
+    private String releaseDates;
     private String gender;
     private Float rating;
-    private String releaseDates;
+    private String platforms;
+
+    @JsonIgnore 
     private boolean favorite;
-    private int platformId;
+    
+    @JsonIgnore 
     private String description;
-    private String image;
+    
+    @JsonIgnore
     private String createdAt;
+    
+    @JsonIgnore
     private collectionStatus status;
-   
 
     public Game() {
+        
     }
 
-    public Game(int id, String name, String gender, Float rating, String releaseDates, boolean favorite, int platformId, String description, String image, String createdAt, collectionStatus status) {
-        this.id = id;
+    public Game(String name, String image, String releaseDates, String gender, Float rating, String platforms, boolean favorite, String description, String createdAt) {
         this.name = name;
+        this.image = image;
+        this.releaseDates = releaseDates;
         this.gender = gender;
         this.rating = rating;
-        this.releaseDates = releaseDates;
+        this.platforms = platforms;
         this.favorite = favorite;
-        this.platformId = platformId;
         this.description = description;
-        this.image = image;
         this.createdAt = createdAt;
-        this.status = status;
     }
 
     public int getId() {
@@ -55,6 +66,22 @@ public class Game {
         this.name = name;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getReleaseDates() {
+        return releaseDates;
+    }
+
+    public void setReleaseDates(String releaseDates) {
+        this.releaseDates = releaseDates;
+    }
+
     public String getGender() {
         return gender;
     }
@@ -71,12 +98,12 @@ public class Game {
         this.rating = rating;
     }
 
-    public String getReleaseDates() {
-        return releaseDates;
+    public String getPlatforms() {
+        return platforms;
     }
 
-    public void setReleaseDates(String releaseDates) {
-        this.releaseDates = releaseDates;
+    public void setPlatforms(String platforms) {
+        this.platforms = platforms;
     }
 
     public boolean isFavorite() {
@@ -87,28 +114,12 @@ public class Game {
         this.favorite = favorite;
     }
 
-    public int getPlatformId() {
-        return platformId;
-    }
-
-    public void setPlatformId(int platformId) {
-        this.platformId = platformId;
-    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
     public String getCreatedAt() {
@@ -129,9 +140,20 @@ public class Game {
 
     @Override
     public String toString() {
-        return "Game{" + "id=" + id + ", name=" + name + ", gender=" + gender + ", rating=" + rating + ", releaseDates=" + releaseDates + ", favorite=" + favorite + ", platformId=" + platformId + ", description=" + description + ", image=" + image + ", createdAt=" + createdAt + ", status=" + status + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Game{");
+        sb.append("id=").append(id);
+        sb.append(", name=").append(name);
+        sb.append(", image=").append(image);
+        sb.append(", releaseDates=").append(releaseDates);
+        sb.append(", gender=").append(gender);
+        sb.append(", rating=").append(rating);
+        sb.append(", platforms=").append(platforms);
+        sb.append(", favorite=").append(favorite);
+        sb.append(", description=").append(description);
+        sb.append(", createdAt=").append(createdAt);
+        sb.append(", status=").append(status);
+        sb.append('}');
+        return sb.toString();
     }
-
-    
-
 }
